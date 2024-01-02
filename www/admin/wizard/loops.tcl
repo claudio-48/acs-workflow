@@ -14,7 +14,7 @@ ad_page_contract {
     loop_next_pretty
 }
 
-set workflow_name [ad_quotehtml [ad_get_client_property wf workflow_name]]
+set workflow_name [ns_quotehtml [ad_get_client_property wf workflow_name]]
 
 if { [empty_string_p $workflow_name] } {
     ad_returnredirect ""
@@ -33,7 +33,7 @@ if { [llength $task_list] == 1 } {
     
     set the_transition_key [lindex $task_list 0]
 
-    set loop_from_task_name [ad_quotehtml $task($the_transition_key,task_name)]
+    set loop_from_task_name [ns_quotehtml $task($the_transition_key,task_name)]
 
 } else {
     switch [llength $task_list] {
@@ -63,9 +63,9 @@ if { [llength $task_list] == 1 } {
 	set next_pretty "the end of the process"
     }
 
-    set loop_from_task_name [ad_quotehtml $task($from_transition_key,task_name)]
-    set loop_to_task_name [ad_quotehtml $task($to_transition_key,task_name)]
-    set loop_next_pretty [ad_quotehtml $next_pretty]
+    set loop_from_task_name [ns_quotehtml $task($from_transition_key,task_name)]
+    set loop_to_task_name [ns_quotehtml $task($to_transition_key,task_name)]
+    set loop_next_pretty [ns_quotehtml $next_pretty]
 }
 
 ad_return_template

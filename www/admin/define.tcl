@@ -51,7 +51,7 @@ ad_page_contract {
     modifiable_p
 }
 
-set user_id [ad_maybe_redirect_for_registration]
+set user_id [auth::require_login]
 
 #####
 #
@@ -222,4 +222,5 @@ set left_navbar_html "
 "
 
 ad_return_template
+
 

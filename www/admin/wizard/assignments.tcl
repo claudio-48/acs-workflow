@@ -14,7 +14,7 @@ ad_page_contract {
 }
 
 
-set workflow_name [ad_quotehtml [ad_get_client_property wf workflow_name]]
+set workflow_name [ns_quotehtml [ad_get_client_property wf workflow_name]]
 wf_wizard_massage_tasks [ad_get_client_property wf tasks] task_list task tasks
 
 set context [list [list "" "Simple Process Wizard"] "Assignments"]
@@ -70,4 +70,5 @@ foreach transition_key $task_list {
 }
 
 ad_return_template
+
 

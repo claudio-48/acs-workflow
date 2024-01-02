@@ -31,7 +31,7 @@ db_1row workflow_name {
     where  object_type = :workflow_key
 }
 
-set workflow_name [ad_quotehtml $workflow_name]
+set workflow_name [ns_quotehtml $workflow_name]
 
 set context [list [list "workflow?[export_url_vars workflow_key]" "$workflow_name"] "Cases"]
 
@@ -112,5 +112,6 @@ db_release_unused_handles
 
 
 ad_return_template
+
 
 

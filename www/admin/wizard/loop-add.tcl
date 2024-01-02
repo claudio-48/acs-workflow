@@ -19,9 +19,9 @@ ad_page_contract {
     to_transitions
 }
 
-set workflow_name [ad_quotehtml [ad_get_client_property wf workflow_name]]
+set workflow_name [ns_quotehtml [ad_get_client_property wf workflow_name]]
 
-set task_name [ad_quotehtml $task($from_transition_key,task_name)]
+set task_name [ns_quotehtml $task($from_transition_key,task_name)]
 
 set context [list [list "" "Simple Process Wizard"] [list "loops" "Loops"] "Add loop from $task_name"]
 
@@ -38,3 +38,4 @@ foreach transition_key $task_list {
 
 
 ad_return_template
+

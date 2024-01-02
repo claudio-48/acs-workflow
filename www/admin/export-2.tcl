@@ -45,6 +45,7 @@ if { [string equal $format "save"] } {
     set message "SQL script has been saved to file $file_name on the server."
 }
 
-set sql_script [ad_quotehtml $sql]
+set sql_script [ns_quotehtml $sql]
 
 ad_return_template
+

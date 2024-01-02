@@ -25,8 +25,8 @@ db_1row arc_info {
     and    a.direction = :direction
 }
 
-set guard_description [ad_quotehtml $guard_description]
-set guard_custom_arg [ad_quotehtml $guard_custom_arg]
+set guard_description [ns_quotehtml $guard_description]
+set guard_custom_arg [ns_quotehtml $guard_custom_arg]
 
 # Query Oracle's data dictionary to find all the functions matching the signature that guards
 # must match
@@ -63,12 +63,12 @@ template::multirow append guard_options "#" [ad_decode $guard_callback "#" "SELE
 
 if { ![empty_string_p $guard_callback] && ![string equal $guard_callback "#"] && \
 	[lsearch -exact $possible_guards $guard_callback] == -1 } {
-    template::multirow append guard_options [ad_quotehtml $guard_callback] "SELECTED" "[ad_quotehtml $guard_callback] (current&#151;appears to be invalid)"
+    template::multirow append guard_options [ns_quotehtml $guard_callback] "SELECTED" "[ns_quotehtml $guard_callback] (current&#151;appears to be invalid)"
 }
 
 foreach possible_guard $possible_guards {
     set selected_p [string equal $possible_guard $guard_callback]
-    template::multirow append guard_options [ad_quotehtml $possible_guard] [ad_decode $selected_p 1 "SELECTED" ""] [ad_quotehtml $possible_guard] [ad_decode $selected_p 1 "(current)" ""]
+    template::multirow append guard_options [ns_quotehtml $possible_guard] [ad_decode $selected_p 1 "SELECTED" ""] [ns_quotehtml $possible_guard] [ad_decode $selected_p 1 "(current)" ""]
 }
  
 
@@ -77,3 +77,4 @@ set export_vars [export_form_vars workflow_key transition_key place_key directio
 
 
 ad_return_template
+

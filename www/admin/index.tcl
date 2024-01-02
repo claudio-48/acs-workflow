@@ -39,13 +39,13 @@ db_multirow  -extend {row_even_p} workflows all_workflows {
         and    c.state = 'active'
 	and    not exists (select 1 from wf_task_assignments ta where ta.task_id = t.task_id)
     }]
-    set pretty_name [ad_quotehtml $pretty_name]
+    set pretty_name [ns_quotehtml $pretty_name]
 
     set row_even_p [expr $ctr % 2]
     incr ctr
 }
 
-set user_id [ad_maybe_redirect_for_registration]
+set user_id [auth::require_login]
 
 template::multirow create actions url title
 template::multirow append actions "wizard/" "[_ acs-workflow.New]"
@@ -72,3 +72,4 @@ set left_navbar_html "
 "
 
 ad_return_template 
+

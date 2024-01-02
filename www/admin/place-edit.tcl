@@ -19,7 +19,7 @@ db_1row place_info {
     and    ot.object_type = p.workflow_key
 }
 
-set place_name [ad_quotehtml $place_name]
+set place_name [ns_quotehtml $place_name]
 
 set context [list [list "workflow?[export_url_vars workflow_key]" "$workflow_name"] [list "define?[export_url_vars workflow_key]" "Edit process"] "Edit place"]
 

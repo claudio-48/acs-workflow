@@ -11,8 +11,8 @@ ad_page_contract {
     description
 }
 
-set workflow_name [ad_quotehtml [ad_get_client_property wf workflow_name]]
-set description [ad_quotehtml [ad_get_client_property wf workflow_description]]
+set workflow_name [ns_quotehtml [ad_get_client_property wf workflow_name]]
+set description [ns_quotehtml [ad_get_client_property wf workflow_description]]
 
 set context [list "Simple Process Wizard"]
 

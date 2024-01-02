@@ -38,7 +38,7 @@ db_1row workflow_name {
     where  object_type = :workflow_key
 }
 
-set workflow_name [ad_quotehtml $workflow_name]
+set workflow_name [ns_quotehtml $workflow_name]
 
 set context [list [list "workflow?[export_url_vars workflow_key]" "$workflow_name"] "Workflow Summary"]
 
@@ -195,5 +195,6 @@ if { [wf_graphviz_installed_p] } {
 }
 
 ad_return_template
+
 
 

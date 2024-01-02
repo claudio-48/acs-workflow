@@ -58,7 +58,7 @@ db_1row workflow_info {
     where  ot.object_type = :workflow_key
 }
 
-ReturnHeaders
+util_return_headers
 ns_write "[ad_header "Copying Process..."]
 <h2>Copying Process...</h2>
 [ad_context_bar [list "workflow?[export_url_vars workflow_key]" "$workflow_name"] "Copy process"]
@@ -82,4 +82,5 @@ Go to <a href=\"workflow?[export_vars -url {{workflow_key $new_workflow_key}}]\"
 
 [ad_footer]
 "
+
 

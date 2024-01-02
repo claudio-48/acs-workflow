@@ -23,7 +23,8 @@ set context [list [list "workflow?[export_url_vars workflow_key]" "$workflow_nam
 
 set export_vars [export_form_vars workflow_key return_url]
 
-set workflow_name [ad_quotehtml $workflow_name]
-set description [ad_quotehtml $description]
+set workflow_name [ns_quotehtml $workflow_name]
+set description [ns_quotehtml $description]
 
 ad_return_template 
+
