@@ -2102,7 +2102,7 @@ begin
 end;' language 'plpgsql';
 
 create or replace function workflow_case__get_task_id (integer, integer)
-returns integer as '
+returns integer as $$
 declare
 	get_task_id__case_id         alias for $1;
 	get_task_id__transition_key  alias for $2;
@@ -2115,7 +2115,8 @@ begin
 	      transition_key = get_task_id__transition_key;
 
 	IF not found THEN
-	   raise EXCEPTION ''Case % has no transition with key %'', get_task_id__case_id, get_task_id__transition_key;
+	   raise EXCEPTION 'Case % has no transition with key %', get_task_id__case_id, get_task_id__transition_key;
 	END IF;
 	return v_task_id;
-end;' language 'plpgsql';
+end;$$
+language 'plpgsql';
