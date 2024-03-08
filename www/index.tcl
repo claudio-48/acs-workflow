@@ -9,6 +9,8 @@ ad_page_contract {
     admin_p
 }
 
+# branch one comment
+
 set user_id [auth::require_login]
 set admin_p [permission::permission_p -object_id [ad_conn package_id] -privilege "admin"]
 
