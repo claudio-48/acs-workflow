@@ -10,6 +10,7 @@ ad_page_contract {
 }
 
 # branch one comment
+# commento git main
 
 set user_id [auth::require_login]
 set admin_p [permission::permission_p -object_id [ad_conn package_id] -privilege "admin"]
